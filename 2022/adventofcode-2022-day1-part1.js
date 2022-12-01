@@ -8,9 +8,10 @@
 
 
 const largestCalorieSum = pipe(
+  split('\n\n'),
   map(items => split('\n')(items)),
   map(sum),
-  max
-)(split('\n\n')(input));
+  reduce(max)(0)
+)(input);
 
 console.log(largestCalorieSum);
