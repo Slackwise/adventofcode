@@ -1,0 +1,10 @@
+{
+  "name": "adventofcode",
+  "description": "Just my adventofcode.com scaffolding",
+  "type": "module",
+  "author": "Adam 'Slackwise' Flanczewski",
+  "license": "CC-BY-NC-SA-4.0",
+  "dependencies": {
+    "ramda": "^0.28.0"
+  }
+}
