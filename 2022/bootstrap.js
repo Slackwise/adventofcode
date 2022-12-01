@@ -1,15 +1,14 @@
-import readFileSync from 'fs';
+import { readFileSync } from 'fs';
 import { basename as pathBasename } from 'path';
 import { fileURLToPath } from 'url';
 import * as ramda from 'ramda';
 
-const basename = pathBasename(fileURLToPath(import.meta.url), '.js');
-
 export { ramda };
 
 export function getInput(fileURL) {
+  const basename = pathBasename(fileURLToPath(fileURL), '.js');
   try {
-    const input = readFileSync(basename + '.txt', 'utf8');
+  const input = readFileSync(`input/${basename}.txt`, {encoding: 'utf8'});
     const lines = input.split('\n');
     return { input, lines };
   } catch (ex) {
