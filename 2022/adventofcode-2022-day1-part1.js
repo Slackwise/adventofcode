@@ -1,5 +1,5 @@
 import getInput from './init.js';
-onst { input, lines } = getInput(import.meta.url);
+const { input, lines } = getInput(import.meta.url);
 
 const largestCalorieSum = pipe(
   split('\n\n'),
