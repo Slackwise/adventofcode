@@ -3,7 +3,12 @@ import { basename } from 'path';
 import { fileURLToPath } from 'url';
 import * as ramda from 'ramda';
 
+
+// We want Ramda available without any silly object prefix constantly.
+// This pulls all functions from Ramda and puts them into the global scope,
+// making them available everywhere.
 Object.entries(ramda).forEach(([fname, f]) => global[fname] = f);
+
 
 export default function getInput(fileURL) {
   const inputName = basename(fileURLToPath(fileURL), '.js').replace(/\-part\d/, '');
