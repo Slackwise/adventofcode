@@ -1,11 +1,5 @@
-// ╔═════════════╗
-// ║ BOILERPLATE ║
-// ╟─────────────╨───────────────────────────────────────────────────────────╖
-/* ║ */ import { getInput, ramda } from './init.js';                      // ║
-/* ║ */ const { input, lines } = getInput(import.meta.url);               // ║
-/* ║ */ Object.entries(ramda).forEach(([fname, f]) => global[fname] = f); // ║
-// ╚═════════════════════════════════════════════════════════════════════════╝
-
+import getInput from './init.js';
+onst { input, lines } = getInput(import.meta.url);
 
 const largestCalorieSum = pipe(
   split('\n\n'),

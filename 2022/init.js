@@ -3,9 +3,9 @@ import { basename } from 'path';
 import { fileURLToPath } from 'url';
 import * as ramda from 'ramda';
 
-export { ramda };
+Object.entries(ramda).forEach(([fname, f]) => global[fname] = f);
 
-export function getInput(fileURL) {
+export default function getInput(fileURL) {
   const inputName = basename(fileURLToPath(fileURL), '.js').replace(/\-part\d/, '');
   try {
   const input = readFileSync(`input/${inputName}.txt`, {encoding: 'utf8'});

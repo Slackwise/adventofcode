@@ -1,10 +1,5 @@
-// ╔═════════════╗
-// ║ BOILERPLATE ║
-// ╟─────────────╨───────────────────────────────────────────────────────────╖
-/* ║ */ import { getInput, ramda } from './boilerplate.js';               // ║
-/* ║ */ const { input, lines } = getInput(import.meta.url);               // ║
-/* ║ */ Object.entries(ramda).forEach(([fname, f]) => global[fname] = f); // ║
-// ╚═════════════════════════════════════════════════════════════════════════╝
+import getInput from './init.js';
+const { input, lines } = getInput(import.meta.url);
 
 const largestDescending = (a, b) =>
   b - a;
