@@ -13,7 +13,7 @@ Object.entries(ramda).forEach(([fname, f]) => global[fname] = f);
 export default function getInput(fileURL) {
   const inputName = basename(fileURLToPath(fileURL), '.js').replace(/\-part\d/, '');
   try {
-  const input = readFileSync(`input/${inputName}.txt`, {encoding: 'utf8'});
+    const input = readFileSync(`input/${inputName}.txt`, {encoding: 'utf8'}).trim();
     const lines = input.split('\n');
     return { input, lines };
   } catch (ex) {
