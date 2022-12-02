@@ -1,6 +1,6 @@
 import getInput from './init.js';
 const { input, lines } = getInput(import.meta.url);
-//
+
 // In Clojure, this would just be a map,
 // which would be used as a self-indexing function:
 const scoreHand = {
@@ -25,7 +25,7 @@ const outcome = (opponent, self) =>
   self == victor[opponent]
     ? 'WIN'
     : self == loser[opponent]
-      ? 'LOSER'
+      ? 'LOSE'
       : 'DRAW';
 
 const scoreOutcome = {
@@ -62,13 +62,11 @@ const matchup = line =>
   )(line);
 
 
-const sumAll = reduce(sum)(0);
-
 const totalScore =
   pipe(
     map(matchup),
     map(score),
-    sumAll
+    sum
   )(lines);
 
 console.log(totalScore);
