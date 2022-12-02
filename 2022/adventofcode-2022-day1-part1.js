@@ -1,7 +1,7 @@
 // ╔═════════════╗
 // ║ BOILERPLATE ║
 // ╟─────────────╨───────────────────────────────────────────────────────────╖
-/* ║ */ import { getInput, ramda } from './boilerplate.js';               // ║
+/* ║ */ import { getInput, ramda } from './init.js';                      // ║
 /* ║ */ const { input, lines } = getInput(import.meta.url);               // ║
 /* ║ */ Object.entries(ramda).forEach(([fname, f]) => global[fname] = f); // ║
 // ╚═════════════════════════════════════════════════════════════════════════╝
