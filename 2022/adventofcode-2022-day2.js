@@ -9,22 +9,22 @@ const scoreHand = {
   SCISSORS: 3
 };
 
-const victor = {
+const winAgainst = {
   ROCK:     'PAPER',
   PAPER:    'SCISSORS',
   SCISSORS: 'ROCK'
 };
 
-const loser = {
+const loseTo = {
   ROCK:     'SCISSORS',
   PAPER:    'ROCK',
   SCISSORS: 'PAPER'
 };
 
 const outcome = (opponent, self) =>
-  self == victor[opponent]
+  self == winAgainst[opponent]
     ? 'WIN'
-    : self == loser[opponent]
+    : self == loseTo[opponent]
       ? 'LOSE'
       : 'DRAW';
 
@@ -69,4 +69,48 @@ const totalScore =
     sum
   )(lines);
 
-console.log(totalScore);
+console.log("Part 1: " + totalScore);
+
+
+// PART 2 ===================
+
+const strategyMap = {
+  X: 'LOSE',
+  Y: 'DRAW',
+  Z: 'WIN'
+};
+
+const strategy = line =>
+  pipe(
+    split(' '),
+    ([ handCode, requiredOutcomeCode ]) => (
+      {
+        opponentHand:    hand(handCode),
+        requiredOutcome: strategyMap[requiredOutcomeCode]
+      }
+    ),
+  )(line);
+
+
+const followStrategy = ({ opponentHand, requiredOutcome }) =>(
+  {
+    opponent:   opponentHand,
+    self:       requiredOutcome == 'WIN'
+                  ? winAgainst[opponentHand]
+                  : requiredOutcome == 'LOSE'
+                    ? loseTo[opponentHand]
+                    : opponentHand
+  }
+);
+
+
+const totalScore2 =
+  pipe(
+    map(strategy),
+    map(followStrategy),
+    map(score),
+    sum
+  )(lines);
+
+
+console.log("Part 2: " + totalScore2);
