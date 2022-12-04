@@ -10,7 +10,7 @@ import * as ramda from 'ramda';
 Object.entries(ramda).forEach(([fname, f]) => global[fname] = f);
 
 
-export default function getInput(fileURL) {
+export function getInput(fileURL) {
   const inputName = basename(fileURLToPath(fileURL), '.js').replace(/\-part\d/, '');
   try {
     const input = readFileSync(`input/${inputName}.txt`, {encoding: 'utf8'}).trim();
@@ -20,4 +20,10 @@ export default function getInput(fileURL) {
     console.log(`You forgot to get the input text file for "${inputName}", dummy!`);
     process.exit(1);
   }
+}
+
+// A transparent logging function
+export function L(x) {
+  console.log(x);
+  return x;
 }

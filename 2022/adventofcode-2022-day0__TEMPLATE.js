@@ -1,9 +1,10 @@
-import getInput from './init.js';
+import { getInput, L } from './init.js';
 const { input, lines } = getInput(import.meta.url);
 
 
 const part1Output =
   pipe(
+    sum
   )(lines);
 
 console.log("Part 1: " + part1Output);
@@ -14,6 +15,7 @@ console.log("Part 1: " + part1Output);
 
 const part2Output =
   pipe(
+    sum
   )(lines);
 
 console.log("Part 2: " + part2Output);
