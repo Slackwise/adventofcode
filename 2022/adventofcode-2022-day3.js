@@ -21,7 +21,7 @@ const priority = letter => {
 const part1Output =
   pipe(
     map(rucksack),
-    map(sack => intersection(...sack)),
+    map(apply(intersection)),
     map(map(priority)),
     sum
   )(lines);
