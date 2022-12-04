@@ -1,19 +1,32 @@
 import getInput from './init.js';
 const { input, lines } = getInput(import.meta.url);
 
+
 const rucksack = line =>
   map(split(''))(splitAt(line.length / 2)(line));
 
+const isLowercase = letter =>
+  /[a-z]/.test(letter);
+
+const LOWERCASE_PRIORITY_OFFSET = -96;
+const UPPERCASE_PRIORITY_OFFSET = -38;
+
+const priority = letter => {
+  const  code = letter.charCodeAt(0);
+  return code + (isLowercase(letter)
+                 ? LOWERCASE_PRIORITY_OFFSET
+                 : UPPERCASE_PRIORITY_OFFSET);
+};
 
 const part1Output =
   pipe(
-    map(rucksack)
+    map(rucksack),
+    map(sack => intersection(...sack)),
+    map(map(priority)),
+    sum
   )(lines);
 
-console.log("Debug:" + part1Output[1][0]);
-console.log("Debug:" + part1Output[1][1]);
-
-// console.log("Part 1: " + part1Output);
+console.log("Part 1: " + part1Output);
 
 process.exit(0);
 
