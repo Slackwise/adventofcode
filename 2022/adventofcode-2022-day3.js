@@ -37,8 +37,12 @@ const part2Output =
     map(split('')),
     map(reduce((a, c) => ({ ...a, [c]: 1 }))({})),
     splitEvery(3),
-    map(reduce(mergeWith(sum))({})),
-    sum
+    map(reduce(mergeWith(add))({})),
+    // filter(({k, v}) => v == 3),
+    // values,
+    // map(priority),
+    // sum
   )(lines);
+
 
 console.log("Part 2: " + part2Output);
