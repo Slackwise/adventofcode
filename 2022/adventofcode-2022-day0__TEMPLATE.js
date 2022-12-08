@@ -9,7 +9,7 @@ const part1Output =
 
 console.log("Part 1: " + part1Output);
 
-
+process.exit(1); // Delete after finishing part 1
 // PART 2 ===================
 
 
