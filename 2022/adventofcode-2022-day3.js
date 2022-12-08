@@ -1,4 +1,4 @@
-import { getInput, L } from './init.js';
+import getInput from './init.js';
 const { input, lines } = getInput(import.meta.url);
 
 
@@ -34,12 +34,11 @@ console.log("Part 1: " + part1Output);
 
 const part2Output =
   pipe(
-    map(rucksack),
-    map(map((into({})(c => ({ [c]: 1 })))),
+    map(split('')),
+    map(reduce((a, c) => ({ ...a, [c]: 1 }))({})),
     splitEvery(3),
-    // map(into([])(intersection)),
-    // map(map(priority)),
-    // sum
+    map(reduce(mergeWith(sum))({})),
+    sum
   )(lines);
 
 console.log("Part 2: " + part2Output);
