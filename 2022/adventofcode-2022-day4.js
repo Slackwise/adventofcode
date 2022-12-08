@@ -1,4 +1,4 @@
-import { map } from 'ramda';
+import { identical, map } from 'ramda';
 import getInput from './init.js';
 const { input, lines } = getInput(import.meta.url);
 
@@ -7,18 +7,16 @@ const parseAssignmentRanges = line => {
   const [ first, second ] = map(split('-'))(assigments);
   return {
     first: {
-      start: first[0],
-      end:   first[1],
+      start: parseInt(first[0]),
+      end:   parseInt(first[1]),
     },
     second: {
-      start: second[0],
-      end:   second[1]
+      start: parseInt(second[0]),
+      end:   parseInt(second[1])
     }
   };
 };
 
-  
-  
 const contains = (a, b) =>
   a.start <= b.start &&
   a.end   >= b.end;
@@ -30,8 +28,9 @@ const part1Output =
   pipe(
     map(parseAssignmentRanges),
     map(isOverlappingAssignmentPair),
-    count(equals(T)),
+    count(identity)
   )(lines);
+
 
 console.log("Part 1: " + part1Output);
 
