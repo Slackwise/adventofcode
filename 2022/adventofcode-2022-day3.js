@@ -38,10 +38,10 @@ const part2Output =
     map(reduce((a, c) => ({ ...a, [c]: 1 }))({})),
     splitEvery(3),
     map(reduce(mergeWith(add))({})),
-    // filter(({k, v}) => v == 3),
-    // values,
-    // map(priority),
-    // sum
+    map(filter(equals(3))),
+    keys,
+    map(priority),
+    sum
   )(lines);
 
 
