@@ -39,10 +39,10 @@ const part2Output =
     splitEvery(3),
     map(reduce(mergeWith(add))({})),
     map(filter(equals(3))),
-    keys,
+    map(keys),
+    map(head),
     map(priority),
     sum
   )(lines);
-
 
 console.log("Part 2: " + part2Output);
