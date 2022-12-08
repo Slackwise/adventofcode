@@ -21,13 +21,13 @@ const contains = (a, b) =>
   a.start <= b.start &&
   a.end   >= b.end;
 
-const isOverlappingAssignmentPair = ({ first, second }) =>
+const isFullyContainedAssignmentPair = ({ first, second }) =>
   contains(first, second) || contains(second, first);
 
 const part1Output =
   pipe(
     map(parseAssignmentRanges),
-    map(isOverlappingAssignmentPair),
+    map(isFullyContainedAssignmentPair),
     count(identity)
   )(lines);
 
@@ -35,13 +35,18 @@ const part1Output =
 console.log("Part 1: " + part1Output);
 
 
-process.exit(1); // Delete after finishing part 1
 // PART 2 ===================
 
 
+const isOverlappingAssignmentPair = ({ first, second }) =>
+  (first.end  >= second.start && first.end  <= second.end) ||
+  (second.end >= first.start  && second.end <= first.end);
+
 const part2Output =
   pipe(
-    sum
+    map(parseAssignmentRanges),
+    map(isOverlappingAssignmentPair),
+    count(identity)
   )(lines);
 
 console.log("Part 2: " + part2Output);
