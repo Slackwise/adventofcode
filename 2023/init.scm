@@ -1,5 +1,7 @@
 (use-modules
-  (ice-9 textual-ports))
+  (ice-9 textual-ports)
+  (ice-9 regex)
+  (srfi srfi-1))
 
 (define get-input-string
   (lambda (filename)
