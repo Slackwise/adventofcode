@@ -10,3 +10,18 @@
 (define calibration-sum (fold + 0 (map extract-numbers input-lines)))
 
 (display calibration-sum)
+
+(define number-words '( ("one"    . 1)
+                        ("two"    . 2)
+                        ("three"  . 3)
+                        ("four"   . 4)
+                        ("five"   . 5)
+                        ("six"    . 6)
+                        ("seven"  . 7)
+                        ("eight"  . 8)
+                        ("nine"   . 9)))
+
+
+(define replace-number-words
+  (lambda (line)
+    (fold (lambda (line-to-transform number-word) (string-replace line-to-transform number-word)) line number-words)))
