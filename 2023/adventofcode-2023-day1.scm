@@ -19,9 +19,14 @@
                         ("six"    . 6)
                         ("seven"  . 7)
                         ("eight"  . 8)
-                        ("nine"   . 9)))
+                        ("nine"   . 9) ))
 
 
 (define replace-number-words
   (lambda (line)
-    (fold (lambda (line-to-transform number-word) (string-replace line-to-transform number-word)) line number-words)))
+    (fold (lambda (number-word line-to-transform)
+            (string-replace line-to-transform (car number-word) (cdr number-word)))
+          line
+          number-words)))
+
+(display (replace-number-words "onetwoxxthree"))
