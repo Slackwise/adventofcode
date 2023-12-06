@@ -2,10 +2,9 @@
 
 (define input-lines (get-input-lines (current-filename)))
 
-(define extract-numbers
-  (lambda (line)
+(define (extract-numbers line)
     (let ((digits (map match:substring (list-matches "[0-9]" line))))
-      (string->number (string-append (car digits) (last digits))))))
+      (string->number (string-append (car digits) (last digits)))))
 
 (define calibration-sum (fold + 0 (map extract-numbers input-lines)))
 
@@ -22,9 +21,8 @@
                         ("nine"   . 9) ))
 
 
-(define replace-number-words
-  (lambda (line)
+(define (replace-number-words line)
     (fold (lambda (number-word line-to-transform)
             (string-replace-substring line-to-transform (car number-word) (cdr number-word)))
           line
-          number-words)))
+          number-words))
