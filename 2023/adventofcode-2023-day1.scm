@@ -5,8 +5,8 @@
 ;; Part 1:
 
 (define (extract-numbers line)
-    (let ((digits (map match:substring (list-matches "[0-9]" line))))
-      (string->number (string-append (car digits) (last digits)))))
+  (let ((digits (map match:substring (list-matches "[0-9]" line))))
+    (string->number (string-append (car digits) (last digits)))))
 
 (define calibration-sum (fold + 0 (map extract-numbers input-lines)))
 
