@@ -1,5 +1,6 @@
 (use-modules
   (ice-9 textual-ports)
+  (ice-9 string-fun)
   (ice-9 regex)
   (srfi srfi-1))
 

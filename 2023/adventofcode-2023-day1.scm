@@ -25,8 +25,6 @@
 (define replace-number-words
   (lambda (line)
     (fold (lambda (number-word line-to-transform)
-            (string-replace line-to-transform (car number-word) (cdr number-word)))
+            (string-replace-substring line-to-transform (car number-word) (cdr number-word)))
           line
           number-words)))
-
-(display (replace-number-words "onetwoxxthree"))
