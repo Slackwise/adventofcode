@@ -29,14 +29,14 @@
 
 
 (define (replace-number-words line)
-    (fold (lambda (number-word line-to-transform)
-            (string-replace-substring line-to-transform (car number-word) (cdr number-word)))
-          line
-          number-words))
+  (fold (lambda (number-word line-to-transform)
+          (string-replace-substring line-to-transform (car number-word) (cdr number-word)))
+        line
+        number-words))
 
 (define (extract-numbers line)
-    (let ((digits (map match:substring (list-matches "[0-9]" (replace-number-words line)))))
-      (string->number (string-append (car digits) (last digits)))))
+  (let ((digits (map match:substring (list-matches "[0-9]" (replace-number-words line)))))
+    (string->number (string-append (car digits) (last digits)))))
 
 (define calibration-sum (fold + 0 (map extract-numbers input-lines)))
 
