@@ -1,9 +1,14 @@
-(ns adventofcode)
+(ns adventofcode.day1 
+  (:require 
+   [clojure.string :as string]
+   [cljs-node-io.core :as io :refer [slurp spit]]))
 
 (def input (slurp "input/day1.txt"))
 
 (print input)
 
-(def output)
+(def output
+  (-> input
+      (map #(string/split % #" "))))
 
-(defn day1 [] (print "Day 1: " output))
+(print output)

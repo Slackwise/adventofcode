@@ -1,12 +1,13 @@
 ;; shadow-cljs configuration
 {:source-paths
-  [ "src"]
+ ["src"]
 
  :dependencies
- []
+ [[com.github.pkpkpk/cljs-node-io "2.0.339"]]
 
  :builds
- {:adventofcode {:target :node-script
-                 :output-dir "output"
-                 :asset-path "/assets"
-                 :modules {:main {:entries [adventofcode.init]}}}}}
+ {:adventofcode-script
+  {:target :node-script
+   :main adventofcode.init/init
+   :output-to "output/adventofcode-script.js"}}}
+
