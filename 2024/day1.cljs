@@ -5,5 +5,6 @@
 
 (p/->>  (nbb/slurp "input/day1.txt")
         ;; (println)
-        (map #(string/split % #" "))
+        (#(string/split % \newline))
+        (map #(string/split % #"   "))
         (prn))
