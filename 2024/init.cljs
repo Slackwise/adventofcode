@@ -1,5 +1,6 @@
-(ns init
- (:require [adventofcode.day1]))
-
-(defn init []
-  (print "Starting Advent of Code 2024..."))
+(ns adventofcode
+ (:require
+  [clojure.string :as string]
+  [nbb.core :as nbb]
+  [promesa.core :as p]
+  [adventofcode.day1]))

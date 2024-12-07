@@ -1,0 +1,11 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "main": "init.js",
+  "scripts": {
+    "day1": "nbb day1.cljs"
+  },
+  "dependencies": {
+    "promesa": "^0.1.1"
+  }
+}
