@@ -6,4 +6,7 @@
  []
 
  :builds
- {}}
+ {:adventofcode {:target :node-script
+                 :output-dir "output"
+                 :asset-path "/assets"
+                 :modules {:main {:entries [adventofcode.init]}}}}}
