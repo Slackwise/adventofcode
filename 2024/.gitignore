@@ -23,3 +23,4 @@ pom.xml.asc
 .lsp
 .calva
 .clj-kondo
+lock
